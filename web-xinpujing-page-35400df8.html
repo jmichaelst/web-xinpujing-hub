@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>澳门新葡京 · 随时回访的信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f2f8f6;
+            color: #1a2e2b;
+            line-height: 1.6;
+            padding: 20px 16px 50px;
+        }
+
+        .page-wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉 — 网格卡片 hero */
+        .hero-card {
+            background: linear-gradient(135deg, #d6efe8 0%, #b7ddd4 100%);
+            border-radius: 28px;
+            padding: 32px 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 12px 24px rgba(0, 70, 60, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #004d40;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #1f4a43;
+            max-width: 600px;
+        }
+
+        .hero-tagline {
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(6px);
+            padding: 12px 18px;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: 500;
+            color: #015f50;
+            border: 1px solid rgba(1, 95, 80, 0.2);
+            margin-top: 6px;
+        }
+
+        /* 网格卡片布局 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin: 28px 0;
+        }
+
+        @media (min-width: 540px) {
+            .grid-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .grid-cards {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .card-item {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 12px rgba(0, 60, 50, 0.06);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border: 1px solid #e0f0eb;
+        }
+
+        .card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 80, 70, 0.08);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #015f50;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .card-item p {
+            color: #2b4c45;
+            font-size: 0.95rem;
+        }
+
+        /* 适合人群 — 特殊卡片条 */
+        .audience-section {
+            background: #e6f4ef;
+            border-radius: 24px;
+            padding: 30px 24px;
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .audience-left {
+            flex: 2 1 200px;
+        }
+
+        .audience-left h2 {
+            color: #004940;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            margin-top: 6px;
+        }
+
+        .tag {
+            background: white;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #116b5b;
+            font-size: 0.9rem;
+            border: 1px solid #b5d6cb;
+        }
+
+        .audience-note {
+            flex: 1 1 180px;
+            background: #ffffffd6;
+            border-radius: 20px;
+            padding: 16px 18px;
+            color: #1e5148;
+            font-size: 0.95rem;
+        }
+
+        /* 自然链接段落 & FAQ 风格 */
+        .link-paragraph {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 26px;
+            margin: 28px 0;
+            box-shadow: 0 6px 14px rgba(0, 50, 40, 0.04);
+            border-left: 6px solid #359b87;
+        }
+
+        .link-paragraph p {
+            margin-bottom: 16px;
+        }
+
+        .link-paragraph p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-mini {
+            background: #f9fdfb;
+            border-radius: 24px;
+            padding: 28px 26px;
+            margin: 30px 0;
+        }
+
+        .faq-mini details {
+            margin-bottom: 14px;
+            border-bottom: 1px solid #d2e6df;
+            padding-bottom: 12px;
+        }
+
+        .faq-mini summary {
+            font-weight: 600;
+            color: #015f50;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+
+        .faq-mini details p {
+            margin-top: 10px;
+            color: #2e5950;
+            font-size: 0.95rem;
+            padding-left: 4px;
+        }
+
+        /* 按钮 / 装饰标记 */
+        .bookmark-tip {
+            background: #c3e3d9;
+            padding: 14px 20px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: #004d3b;
+            margin: 18px 0 8px;
+            flex-wrap: wrap;
+        }
+
+        .bookmark-tip span {
+            background: #004d3b;
+            color: white;
+            border-radius: 30px;
+            padding: 2px 14px;
+            font-size: 0.85rem;
+        }
+
+        a {
+            color: #00856c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        a:hover {
+            border-bottom-color: #00856c;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #557a71;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            border-top: 1px solid #cde0d9;
+            padding-top: 24px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- hero 网格卡片主视觉 -->
+    <div class="hero-card">
+        <div class="hero-title">再一次，轻松回来</div>
+        <div class="hero-sub">收藏夹里的老朋友 · 澳门新葡京</div>
+        <div class="hero-tagline">📌 把熟悉的页面留在手边，随时回访</div>
+    </div>
+
+    <!-- 用途卡片网格 -->
+    <div class="grid-cards">
+        <div class="card-item">
+            <span class="card-icon">📇</span>
+            <h3>快速回访</h3>
+            <p>想再次浏览时，不必重新搜索。将值得驻足的页面加入书签，一键即可回到内容中心。</p>
+        </div>
+        <div class="card-item">
+            <span class="card-icon">🔖</span>
+            <h3>持续关注</h3>
+            <p>网页内容会不定期更新。保持收藏有效，不错过你感兴趣的信息与动态。</p>
+        </div>
+        <div class="card-item">
+            <span class="card-icon">🧭</span>
+            <h3>顺畅体验</h3>
+            <p>适配手机与电脑的界面，无论在哪打开，都能获得清晰、不杂乱的浏览感受。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 收藏提示 -->
+    <div class="audience-section">
+        <div class="audience-left">
+            <h2>适合这样的你</h2>
+            <div class="audience-tags">
+                <span class="tag">偶尔回访</span>
+                <span class="tag">常驻收藏夹</span>
+                <span class="tag">信息整理派</span>
+                <span class="tag">移动端用户</span>
+            </div>
+        </div>
+        <div class="audience-note">
+            ⭐ 如果你喜欢提前收藏、稍后细读，或者习惯把常用网站放在手边，这里会是一个安心的选择。
+        </div>
+    </div>
+
+    <!-- 自然链接段落：嵌入澳门新葡京 -->
+    <div class="link-paragraph">
+        <p>很多访问者会在第一次浏览后，选择把页面存进浏览器收藏夹。下次想要回来时，直接点击书签就能继续阅读。如果你之前对 <a href="https://web-xinpujing.com">澳门新葡京</a> 的内容印象不错，不妨现在就把它添加到收藏栏。这样无论什么时候想起，都能快速定位。</p>
+        <p>收藏之后，你还可以在空闲时再仔细翻看。网页的布局和文字都经过适配，手机或电脑上都显得干净。把熟悉的站点留在收藏夹里，就像随身带了一本随时可翻的小册子。</p>
+    </div>
+
+    <!-- FAQ 摘要风格 (收藏与再次访问相关) -->
+    <div class="faq-mini">
+        <details open>
+            <summary>为什么要收藏这个页面？</summary>
+            <p>经常访问的站点，每次手动输入地址或重新搜索会多花几秒钟。收藏后，从书签栏一步到达，节省时间也减少重复操作。</p>
+        </details>
+        <details>
+            <summary>页面内容会变化吗？</summary>
+            <p>会不定期进行调整与更新，但核心信息区域会保持稳定。收藏链接长期有效，随时打开都是最新版本。</p>
+        </details>
+        <details>
+            <summary>我在手机上如何收藏？</summary>
+            <p>使用 Safari 或 Chrome 等浏览器打开页面，点击分享或菜单按钮，选择「添加到主屏幕」或「书签」，之后就能像打开应用一样快速回来。</p>
+        </details>
+    </div>
+
+    <!-- 再次访问 & 收藏小提醒 -->
+    <div class="bookmark-tip">
+        <span>💡</span> 现在就可以把当前页加入收藏夹，下次直接从书签回来
+        <span>⌘+D / Ctrl+D</span>
+    </div>
+
+    <!-- 额外自然段落，保持温和语气 -->
+    <p style="color: #2a5f55; margin: 24px 0 10px; font-size: 0.98rem;">
+        如果你之前曾到访过 <a href="https://web-xinpujing.com">澳门新葡京</a> 并觉得内容符合期待，值得把它留在收藏列表里。网络信息流动很快，但一个顺手可达的书签能让你的回访变得非常自然。
+    </p>
+
+    <div class="footer-note">
+        🌿 保持收藏，轻松回访 · 澳门新葡京
+    </div>
+
+</div>
+</body>
+</html>
