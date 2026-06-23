@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于乐鱼 · 生活与温度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f3ef;
+            color: #2b2b2b;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .hero {
+            background: #1e2329;
+            background-image: radial-gradient(circle at 20% 30%, #2d3a44 0%, #14181c 100%);
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            color: #f0ede8;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 0.75rem;
+        }
+        .hero h1 span {
+            font-weight: 600;
+            color: #f8cb7e;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #b7b1a6;
+            max-width: 480px;
+            margin: 0 auto 0.5rem;
+            border-top: 1px solid #3c454d;
+            padding-top: 1.2rem;
+        }
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+            flex: 1;
+        }
+        .post-title {
+            font-size: 1.9rem;
+            font-weight: 500;
+            line-height: 1.3;
+            color: #1f2329;
+            margin-bottom: 0.6rem;
+        }
+        .post-meta {
+            color: #8a8580;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #e2ddd6;
+            padding-bottom: 1.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 0.5rem 1.2rem;
+            flex-wrap: wrap;
+        }
+        .post-meta span {
+            display: inline-block;
+        }
+        .lead {
+            font-size: 1.1rem;
+            color: #444;
+            background: #f0ece5;
+            padding: 1.2rem 1.6rem;
+            border-radius: 14px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #c0a57b;
+        }
+        p {
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+        }
+        .inset-quote {
+            background: #eae5dd;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            margin: 1.8rem 0 2rem;
+            font-style: italic;
+            color: #3f3b36;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .inset-quote::before {
+            content: "“";
+            font-size: 3rem;
+            color: #b29a78;
+            position: absolute;
+            left: 0.8rem;
+            top: -0.2rem;
+            line-height: 1;
+        }
+        .inset-quote p {
+            margin-bottom: 0.2rem;
+            padding-left: 1.8rem;
+        }
+        .inset-quote .source {
+            display: block;
+            margin-top: 0.6rem;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #7a736b;
+        }
+        a {
+            color: #b7733a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s, border-bottom 0.15s;
+            border-bottom: 1px solid transparent;
+        }
+        a:hover {
+            color: #8f5c2b;
+            border-bottom-color: #b7733a;
+        }
+        .highlight-link {
+            background: #f8eedf;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+        }
+        .visit-note {
+            background: #fcf9f5;
+            border: 1px solid #dad3c9;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin: 2.4rem 0 1.5rem;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #3a3732;
+        }
+        .visit-note strong {
+            color: #1f2329;
+        }
+        .faq-mini {
+            background: #eae4db;
+            border-radius: 20px;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0 1.2rem;
+        }
+        .faq-mini dt {
+            font-weight: 600;
+            color: #2d2a25;
+            margin: 0.8rem 0 0.2rem;
+            font-size: 1rem;
+        }
+        .faq-mini dd {
+            margin-left: 0.2rem;
+            color: #4d4842;
+            font-size: 0.95rem;
+            padding-bottom: 0.4rem;
+        }
+        .faq-mini dd:last-of-type {
+            margin-bottom: 0.2rem;
+        }
+        .footer {
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+            font-size: 0.85rem;
+            color: #9b958d;
+            border-top: 1px solid #e2dad1;
+            margin-top: 1.5rem;
+        }
+        .footer a {
+            color: #a57c58;
+        }
+        @media (max-width: 540px) {
+            .hero { padding: 2.8rem 1rem 2.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .post-title { font-size: 1.5rem; }
+            .lead { font-size: 1rem; padding: 0.9rem 1.2rem; }
+            .container { padding: 1.8rem 1rem 2rem; }
+            .inset-quote { padding: 1rem 1.2rem; }
+        }
+        @media (prefers-color-scheme: dark) {
+            body { background: #1c1c1c; color: #ddd8d0; }
+            .hero { background: #0e1216; background-image: radial-gradient(circle at 20% 30%, #1b262f 0%, #0b0e11 100%); }
+            .post-title { color: #e8e0d6; }
+            .lead { background: #2b2b28; color: #cfc9c0; border-left-color: #8b7a61; }
+            .inset-quote { background: #2e2b27; color: #d5cdc2; }
+            .inset-quote .source { color: #a0978a; }
+            .faq-mini { background: #2d2a26; }
+            .faq-mini dt { color: #ddd0c0; }
+            .faq-mini dd { color: #beb5a8; }
+            .highlight-link { background: #3d362e; }
+            .visit-note { background: #252320; border-color: #3d382f; color: #cfc6b9; }
+            .visit-note strong { color: #e7dccb; }
+            .post-meta { color: #a59b8e; border-bottom-color: #3a3530; }
+            .footer { border-top-color: #33302b; color: #8a8278; }
+            a { color: #dba16d; }
+            a:hover { color: #eac394; }
+            .footer a { color: #c19263; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>与<span>乐鱼</span>同行</h1>
+        <div class="sub">一段生活化的笔记 · 关于熟悉与温度</div>
+    </header>
+
+    <main class="container">
+        <article>
+            <h2 class="post-title">在日常中，找到一处自在的角落</h2>
+            <div class="post-meta">
+                <span>📅 2025 · 春</span>
+                <span>✍️ 随笔</span>
+                <span>🏷️ 生活 · 体验</span>
+            </div>
+
+            <p class="lead">
+                聊起“乐鱼”，第一反应并非功能或界面，而是一种轻快、不费力的感觉，就像下午三点窗边刚好落下的阳光。
+            </p>
+
+            <p>
+                前阵子换了一种节奏，试着把每天固定刷消息的时间留出一段给自己。不再追求信息量，而是看那些让自己能松弛下来的东西。后来注意到一个叫<a href="https://wapm-leyu.com" class="highlight-link">乐鱼</a>的地方，没有刻意设计，却慢慢变成了一个习惯。谈不上沉迷，更像是生活里一个安静的入口。
+            </p>
+
+            <p>
+                有时候一段视频、几张图，甚至只是标题列表，就能让紧绷的神经稍微松下一点。我猜很多人都有类似的感受——在重复的日子里，需要一些不含压迫感的陪伴。那种“不必思考太多”的间隙，恰恰是忙碌生活里稀有的东西。
+            </p>
+
+            <div class="inset-quote">
+                <p>“不必每时每刻都追求意义，有时候仅仅让自己感到舒服，就已经很好了。”</p>
+                <span class="source">—— 一位朋友在聊天时说的话</span>
+            </div>
+
+            <p>
+                真的静下来之后，你会发现那些简单的内容反而经得起反复看。没有夸张的噱头，没有催促你做什么的标语，就是纯粹的内容流动。或许这也是为什么我会愿意把<a href="https://wapm-leyu.com">乐鱼</a>放在日常列表里——它不张扬，但待着舒服。
+            </p>
+
+            <p>
+                最近和几个认识多年的朋友聊起各自的放松方式，有人说散步，有人听老播客，而我提到了这个地方。他们好奇地点开，然后说“哦，有点意思”。其实有意思的不只是内容，更是那种不用费力融入的氛围感。像一杯温水，不烫手，但刚好。
+            </p>
+
+            <div class="visit-note">
+                <strong>如果你也在找这样一个去处</strong>，或许可以试试打开 <a href="https://wapm-leyu.com">乐鱼</a>，哪怕只是随便看看。
+            </div>
+
+            <p>
+                当然，每个人对“好”的定义不同。我写这篇笔记并不是想推荐什么，只是记录自己的一段感受。数字化生活里，能遇到一个让你觉得“轻松”的地方，也是一种运气。至少对我来说是这样的。
+            </p>
+
+            <dl class="faq-mini">
+                <dt>❓ 乐鱼是什么类型？</dt>
+                <dd>一个以内容浏览为主的站点，风格偏轻量，适合碎片时间随意翻阅。</dd>
+                <dt>❓ 需要注册或付费吗？</dt>
+                <dd>目前不需要注册即可浏览，也没有付费门槛，直接打开就能使用。</dd>
+                <dt>❓ 适合什么样的人？</dt>
+                <dd>适合想放松、不追求高强度互动、喜欢安静浏览内容的人。</dd>
+            </dl>
+
+            <p style="font-size: 0.95rem; color: #6f6a62; margin-top: 2rem;">
+                —— 写于一个普通的周末，窗外有风，屋内很静。
+            </p>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <p>偶尔记录 · 关于 <a href="https://wapm-leyu.com">乐鱼</a> 的一点私人笔记</p>
+        <p style="margin-top: 0.4rem; font-size: 0.8rem;">© 2025 · 生活向</p>
+    </footer>
+</body>
+</html>
