@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 使用说明与入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+            background-color: #faf7f0;
+            color: #2d2a24;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #fffcf7;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            padding: 2.4rem 2rem 3rem;
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            padding: 1.8rem 0 2.2rem;
+            border-bottom: 1px solid #ece5da;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #3d3529;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #7a7164;
+            margin-top: 0.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .sub a {
+            color: #5d7b4b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8aa94;
+            font-weight: 500;
+        }
+
+        .hero .sub a:hover {
+            border-bottom-color: #5d7b4b;
+        }
+
+        /* 区块通用 */
+        section {
+            padding: 2rem 0;
+            border-bottom: 1px solid #f0eae0;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: #3d3529;
+            margin-bottom: 1rem;
+            padding-left: 0.75rem;
+            border-left: 4px solid #b5a48b;
+        }
+
+        p {
+            margin-bottom: 0.9rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.2rem 0;
+        }
+
+        .card {
+            background: #f8f3ec;
+            border-radius: 16px;
+            padding: 1.2rem 1rem;
+            transition: background 0.15s;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #4c4236;
+            margin-bottom: 0.3rem;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #5f5547;
+            margin-bottom: 0;
+        }
+
+        .callout {
+            background: #f3efe7;
+            border-left: 5px solid #c0ad92;
+            padding: 1rem 1.4rem;
+            border-radius: 0 14px 14px 0;
+            margin: 1.4rem 0;
+            font-size: 0.95rem;
+            color: #3f392f;
+        }
+
+        .callout strong {
+            color: #4d6b3b;
+            font-weight: 550;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #e1d8cc;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #3d3529;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            color: #5f5547;
+            font-size: 0.93rem;
+            padding-left: 0.4rem;
+        }
+
+        .bottom-links {
+            margin-top: 1.8rem;
+            padding-top: 1.5rem;
+            text-align: center;
+            border-top: 1px solid #ece5da;
+            font-size: 0.9rem;
+            color: #7a7164;
+        }
+
+        .bottom-links a {
+            color: #5d7b4b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b8aa94;
+            margin: 0 0.3rem;
+        }
+
+        .bottom-links a:hover {
+            border-bottom-color: #5d7b4b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .page {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero .sub {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero 区 -->
+        <div class="hero">
+            <h1>乐鱼</h1>
+            <div class="sub">
+                一个稳定的页面入口，提供清晰的信息与使用指引。<br>
+                欢迎通过 <a href="https://wapvip-leyu.com">乐鱼</a> 了解详细内容。
+            </div>
+        </div>
+
+        <!-- 优势区 -->
+        <section>
+            <h2>为什么选择这里</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>入口稳定</h3>
+                    <p>页面长期维护，链接结构清晰，减少绕路与无效跳转。</p>
+                </div>
+                <div class="card">
+                    <h3>内容整洁</h3>
+                    <p>以说明和介绍为主，不带杂乱信息，方便快速浏览。</p>
+                </div>
+                <div class="card">
+                    <h3>适配常规场景</h3>
+                    <p>从个人查阅到轻度分享，均可直接使用，无需额外配置。</p>
+                </div>
+                <div class="card">
+                    <h3>说明前置</h3>
+                    <p>页面围绕“做什么、怎么用”展开，降低理解门槛。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 说明区（页面说明 + 引用块） -->
+        <section>
+            <h2>页面说明</h2>
+            <p>本页是围绕 <strong>乐鱼</strong> 整理的一份介绍与使用摘要。内容主要涉及：服务入口的特征、常见使用场景以及一些实用提醒。如果你正在寻找一个可以直接参考的说明页，这里提供的信息应该足够你做出判断。</p>
+
+            <div class="callout">
+                <strong>提示</strong> — 对于初次接触的用户，建议先浏览下方 FAQ 摘要，再通过页面中的链接进入 <a href="https://wapvip-leyu.com">乐鱼</a> 查看完整内容。
+            </div>
+
+            <p>页面的链接全部指向同一个稳定地址，你可以在任何需要的时候返回这里。所有描述均基于实际页面内容整理，未添加夸张或不准确的信息。</p>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <section>
+            <h2>FAQ 摘要</h2>
+            <div class="faq-item">
+                <div class="faq-q">乐鱼主要提供什么？</div>
+                <div class="faq-a">是一个页面集合型入口，以信息展示和功能引导为主，内容围绕指定主题组织。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">是否需要注册或安装？</div>
+                <div class="faq-a">页面以浏览为主，通常不需要注册或额外安装，直接通过浏览器访问即可。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">移动端和电脑端都能用吗？</div>
+                <div class="faq-a">页面已做适配，在手机、平板和电脑上均可正常显示，布局会自动调整。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">链接打不开怎么办？</div>
+                <div class="faq-a">可检查网络连接，或尝试复制地址 <code>https://wapvip-leyu.com</code> 在浏览器中打开。若持续异常请联系相关支持。</div>
+            </div>
+        </section>
+
+        <!-- 底部链接 -->
+        <div class="bottom-links">
+            <span>更多信息请访问</span>
+            <a href="https://wapvip-leyu.com">乐鱼</a>
+            <span>· 页面内容定期核对 · 以实际显示为准</span>
+        </div>
+    </div>
+</body>
+</html>
